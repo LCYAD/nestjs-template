@@ -3,8 +3,9 @@ import { ConfigModule } from '@nestjs/config'
 
 import { LoggerModule } from 'nestjs-pino'
 
-import secret from './config/secret'
+import { HealthModule } from '@modules/health/health.module'
 
+import secret from './config/secret'
 
 @Module({
   imports: [
@@ -21,9 +22,8 @@ import secret from './config/secret'
         }
       },
       useExisting: true
-    })
-  ],
-  controllers: [],
-  providers: []
+    }),
+    HealthModule
+  ]
 })
 export class AppModule {}
