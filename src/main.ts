@@ -58,6 +58,6 @@ const bootstrap = async () => {
     SwaggerModule.setup('api', app, document)
   }
 
-  await app.listen(configService.get<string>('port'))
+  await app.listen(configService.get<number>('port'), configService.get<string>('host'))
 }
 void bootstrap()
